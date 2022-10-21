@@ -19,7 +19,9 @@ jobs:
           fetch-depth: 2
 
       - name: Edit test file to need formatting
-        run: echo "    " >> testdata/book.proto
+        run: |
+          echo "    " >> testdata/book.proto
+          git add testdata/book.proto
 
       - name: Run this action
         uses: ./
