@@ -13,6 +13,9 @@ jobs:
       - name: Cleanup
         uses: AutoModality/action-clean@v1
 
+      - name: "Allow agent-libs repo access, ref: https://github.com/actions/checkout/issues/760"
+        run: git config --global --add safe.directory /__w/clang-format-action-1/clang-format-action-1
+
       - name: Checkout
         uses: actions/checkout@v3
 
