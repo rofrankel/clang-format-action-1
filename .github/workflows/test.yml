@@ -18,13 +18,6 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: "Allow agent-libs repo access, ref: https://github.com/actions/checkout/issues/760"
-        run: |
-          export GIT_CEILING_DIRECTORIES=/__w
-          git config --global --add safe.directory /github/workspace
-          git config --global --add safe.directory /__w/clang-format-action-1/clang-format-action-1
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
       - name: Edit test file to need formatting
         run: echo "    " >> testdata/book.proto
 
