@@ -15,6 +15,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
       - name: "Allow agent-libs repo access, ref: https://github.com/actions/checkout/issues/760"
         run: |
