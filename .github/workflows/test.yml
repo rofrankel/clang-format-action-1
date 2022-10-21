@@ -6,12 +6,12 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on:
       - ubuntu-latest
     steps:
       - name: Cleanup
-        uses: Roblox/cleanup-action@v2
+        uses: AutoModality/action-clean@v1
 
       - name: Checkout
         uses: actions/checkout@v3
