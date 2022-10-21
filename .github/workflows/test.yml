@@ -1,0 +1,30 @@
+name:  Test
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on:
+      - ubuntu-latest
+    steps:
+      - name: Cleanup
+        uses: AutoModality/action-clean@v1
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Edit test file to need formatting
+        run: |
+          echo "    " >> testdata/book.proto
+          git add testdata/book.proto
+
+      - name: Run this action
+        uses: ./
+
+      - name: Check goldens
+        run: diff testdata/book.proto testdata/golden/book.proto
